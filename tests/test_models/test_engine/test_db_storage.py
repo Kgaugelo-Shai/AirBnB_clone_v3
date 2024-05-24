@@ -92,7 +92,6 @@ class TestDBStorage(unittest.TestCase):
     """ Tests for the DB storage class methods """
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db',
                      'no test on db storage')
-
     def test_get(self):
         """ Tests for the return of one object of a class """
         test_state = State(name="Arizona")
