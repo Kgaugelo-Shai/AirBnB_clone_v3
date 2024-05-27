@@ -20,7 +20,7 @@ def get_all_states():
 
 @app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
 def get_state(state_id):
-    """ Getsa specific  State """
+    """ Gets a specific  State """
     state = storage.get(State, state_id)
     if not state:
         abort(404)
@@ -74,7 +74,7 @@ def update_state(state_id):
         abort(400, description="Not a JSON")
 
     req = request.get_json()
-    ignored_items= ['id', 'created_at', 'updated_at']
+    ignored_items = ['id', 'created_at', 'updated_at']
     for key, value in req.items():
         if key not in ignored_items:
             setattr(state, key, value)
